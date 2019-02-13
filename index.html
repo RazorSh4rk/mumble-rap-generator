@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+    <meta charset="utf-8">
+      <title>idk</title>
+      <script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js"></script>
+    </head>
+
+    <body>
+        <p>
+            <h2>AI mumble rap generator</h2>
+            írj ide vmi számot, 1k körül már egész jó lesz
+            <input id="anyad" type="number" placeholder="300"><br/>
+            (lassú lesz) : <button onclick="go()">ok</button>
+        </p>
+         <p id="lyrics"></p>
+      <script>
+    function go(){
+        const rnn = ml5.charRNN('models/tinyshakespeare/', modelLoaded)
+        function modelLoaded() {
+          console.log('Model Loaded!')
+        }
+            rnn.generate(
+                { 
+                    seed: Math.floor(Math.random() * 100),
+                    length: document.getElementById('anyad').value
+                 },
+            function(err, results){
+                console.log(results)
+              document.getElementById('lyrics').innerHTML += results.sample + '</br>'
+            })
+        }
+      </script>
+    </body>
+  </html>
