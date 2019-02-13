@@ -1,4 +1,4 @@
-do [https://ml5js.org/docs/CharRNN](this) to train the set or just use the one i have
+do [this](https://ml5js.org/docs/CharRNN) to train the set or just use the one i have
 
 run get_all.py to get lyrics
 
